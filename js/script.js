@@ -47,14 +47,18 @@ const hideSpinner = () => {
 // Clear the code
 const clearUI = () => {
   qr.innerHTML = "";
+
+  const saveBtn = document.querySelector("#save");
+  if (saveBtn) {
+    saveBtn.remove();
+  }
 };
 
 // create save button
 const createSaveBtn = (saveUrl) => {
   const link = document.createElement("a");
   link.id = "save";
-  link.classList =
-    "bg-blue-700 hover:bg:blue-600 text-gray-100 font-bold py-2 rounded w-1/3 m-auto my-5";
+  link.classList = "saveButton";
   link.href = saveUrl;
   link.download = "qrcode";
   link.innerHTML = "Save Image";
